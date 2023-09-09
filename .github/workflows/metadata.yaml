@@ -90,3 +90,6 @@ jobs:
       #
       - name: Deploy
         run: ./scripts/cd/deploy.sh
+
+    # if unit test fails then this doesn't run
+    needs: [ unittest ]
