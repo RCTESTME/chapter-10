@@ -24,6 +24,27 @@ on:
 
 jobs:
 
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE.
+      - uses: actions/checkout@v3
+
+      # Installs node Version 18
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+
+      - name: Go to 'metadata' microservice directory
+        run: cd ./metadata
+
+      - name: Install dependencies non-interactively using 'ci' command
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
   deploy:
     runs-on: ubuntu-latest
     
