@@ -88,7 +88,7 @@ describe("metadata microservice", () => {
         await startMicroservice("mongodb://localhost:27017", "metadata-test", "rabbit", 3000);
 
         const videosRoute = mockGetFn.mock.calls[0][0];
-        expect(videosRoute).toEqual("/videoszzz");
+        expect(videosRoute).toEqual("/videos");
     });
 
     test("/videos route retreives data via videos collection", async () => {
